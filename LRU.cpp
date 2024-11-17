@@ -21,8 +21,8 @@ int main() {
                 }
                 pageTable.erase(pageTable.find(lruPage));
             }
-            pageTable.insert({page, i});
         }
+        pageTable.insert({page, i});
     }
 
     cout << "Page Fault: " << pageFault;
