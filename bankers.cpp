@@ -2,13 +2,14 @@
 #include <vector>
 using namespace std;
 
-bool isNeedLessThanWork(vector<int>& need, vector<int>& work) {
+bool isNeedLessThanWork(vector<int> &need, vector<int> &work) {
     for (int i = 0; i < need.size(); i++) {
-        if (need[i] > work[i]) return false;
+        if (need[i] > work[i])
+            return false;
     }
 
     return true;
-} 
+}
 
 int main() {
     int processCount, resourceCount;
@@ -41,7 +42,8 @@ int main() {
         bool flag = false;
         for (int i = 0; i < processCount; i++) {
             if (!completed[i] && isNeedLessThanWork(needMatrix[i], work)) {
-                for (int j = 0; j < resourceCount; j++) work[j] += allocation[i][j];
+                for (int j = 0; j < resourceCount; j++)
+                    work[j] += allocation[i][j];
                 completed[i] = true;
                 flag = true;
                 completedCount++;

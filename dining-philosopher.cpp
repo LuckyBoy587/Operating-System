@@ -9,11 +9,13 @@ int main() {
         int leftFork = id;
         int rightFork = (id + 1) % NUM_PHILOSOPHERS;
 
-        while (forks[leftFork]) printf("Philosopher %d is waiting for left fork.\n", id + 1);
+        while (forks[leftFork])
+            printf("Philosopher %d is waiting for left fork.\n", id + 1);
         forks[leftFork] = true;
         printf("Philosopher %d accquired the left fork.\n", id + 1);
-        
-        while (forks[rightFork]) printf("Philosopher %d is waiting for right fork.\n", id + 1);
+
+        while (forks[rightFork])
+            printf("Philosopher %d is waiting for right fork.\n", id + 1);
         forks[rightFork] = true;
         printf("Philosopher %d accquired the right fork.\n", id + 1);
 

@@ -18,13 +18,15 @@ void createFile() {
 void deleteFile() {
     string directory, fileName;
     cin >> directory >> fileName;
-    files[directory].erase(find(files[directory].begin(), files[directory].end(), fileName));
+    files[directory].erase(
+        find(files[directory].begin(), files[directory].end(), fileName));
 }
 
 void searchFile() {
     string directory, fileName;
     cin >> directory >> fileName;
-    if (find(files[directory].begin(), files[directory].end(), fileName) != files[directory].end()) {
+    if (find(files[directory].begin(), files[directory].end(), fileName) !=
+        files[directory].end()) {
         cout << "File is present";
     } else {
         cout << "File is not present";
@@ -35,8 +37,8 @@ void searchFile() {
 void displayFiles() {
     cout << "Files are: \n";
     cout << "Directory\t\t\tFiles\n";
-    for (auto& pair: files) {
-        for (string& fileName: pair.second) {
+    for (auto &pair : files) {
+        for (string &fileName : pair.second) {
             cout << pair.first << ' ' << fileName << endl;
         }
     }

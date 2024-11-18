@@ -14,14 +14,15 @@ int main() {
         cin >> arr[i].burstTime;
         arr[i].remainingTime = arr[i].burstTime;
     }
-    
+
     queue<int> q;
-    for (int i = 0; i < size; i++) q.push(i);
-    
+    for (int i = 0; i < size; i++)
+        q.push(i);
+
     int currTime = 0;
-    while(!q.empty()) {
+    while (!q.empty()) {
         int index = q.front();
-        Process& curr = arr[index];
+        Process &curr = arr[index];
         q.pop();
 
         if (curr.remainingTime > TQ) {
@@ -31,15 +32,14 @@ int main() {
         } else {
             currTime += curr.remainingTime;
             curr.remainingTime = 0;
-            curr.turnAroundTime = currTime - curr.burstTime;
+            curr.turnAroundTime = currTime;
             curr.waitingTime = curr.turnAroundTime - curr.burstTime;
         }
     }
 
-    for (const Process& p: arr) {
-        cout << "ID: " << p.id
-             << ", Burst Time: " << p.burstTime 
-             << ", Turnaround Time: " << p.turnAroundTime 
+    for (const Process &p : arr) {
+        cout << "ID: " << p.id << ", Burst Time: " << p.burstTime
+             << ", Turnaround Time: " << p.turnAroundTime
              << ", Waiting Time: " << p.waitingTime << endl;
     }
 

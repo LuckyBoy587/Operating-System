@@ -21,7 +21,7 @@ int main() {
         cin >> process[i - 1].size;
     }
 
-    for (Process& p: process) {
+    for (Process &p : process) {
         int minIndex = -1, minBlockSize = INT_MAX;
         for (int i = 0; i < blockCount; i++) {
             if (p.size <= blockSize[i] && blockSize[i] < minBlockSize) {
@@ -40,15 +40,14 @@ int main() {
         }
     }
 
-    for (Process& p: process) {
+    for (Process &p : process) {
         if (p.allocatedBlock == -1) {
             printf("Process %d has to wait...\n", p.id);
         } else {
-            cout << "ID: " << p.id
-             << ", Size: " << p.size 
-             << ", Allocated Block: " << p.allocatedBlock 
-             << ", Block Size: " << p.blockSize 
-             << ", Fragment Size: " << p.fragmentSize << endl;
+            cout << "ID: " << p.id << ", Size: " << p.size
+                 << ", Allocated Block: " << p.allocatedBlock
+                 << ", Block Size: " << p.blockSize
+                 << ", Fragment Size: " << p.fragmentSize << endl;
         }
     }
 }

@@ -18,16 +18,18 @@ int main() {
                 int maxDistance = -1;
 
                 for (int storedPage : pageTable) {
-                    auto it = find(pageReferences.begin() + i + 1, pageReferences.end(), storedPage);
+                    auto it = find(pageReferences.begin() + i + 1,
+                                   pageReferences.end(), storedPage);
                     int dist = distance(pageReferences.begin(), it);
-                    
+
                     if (dist > maxDistance) {
                         maxDistance = dist;
                         deletePage = storedPage;
                     }
                 }
 
-                pageTable.erase(find(pageTable.begin(), pageTable.end(), deletePage));
+                pageTable.erase(
+                    find(pageTable.begin(), pageTable.end(), deletePage));
             }
             pageTable.push_back(page);
         }

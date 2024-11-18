@@ -11,10 +11,10 @@ int main() {
     cin >> size;
     vector<Process> arr(size);
     for (int i = 0; i < size; i++) {
-        arr[i].id = i + 1; 
+        arr[i].id = i + 1;
         cin >> arr[i].arrivalTime >> arr[i].burstTime;
     }
-    
+
     int currTime = 0;
     int completedCount = 0;
 
@@ -23,8 +23,9 @@ int main() {
         int minBurstTime = INT_MAX;
 
         for (int i = 0; i < size; i++) {
-            Process& p = arr[i];
-            if (!p.completed && p.arrivalTime <= currTime && p.burstTime < minBurstTime) {
+            Process &p = arr[i];
+            if (!p.completed && p.arrivalTime <= currTime &&
+                p.burstTime < minBurstTime) {
                 minBurstTime = p.burstTime;
                 minIndex = i;
             }
@@ -33,7 +34,7 @@ int main() {
         if (minIndex == -1) {
             currTime++;
         } else {
-            Process& p = arr[minIndex];
+            Process &p = arr[minIndex];
             currTime += p.burstTime;
 
             p.turnAroundTime = currTime - p.arrivalTime;
@@ -44,12 +45,11 @@ int main() {
         }
     }
 
-    cout << "Process ID\tArrival Time\tBurst Time\tTurnaround Time\tWaiting Time\n";
-    for (const Process& p: arr) {
-        cout << p.id << "\t\t" << p.arrivalTime 
-             << "\t\t" << p.burstTime 
-             << "\t\t" << p.turnAroundTime 
-             << "\t\t" << p.waitingTime << endl;
+    cout << "Process ID\tArrival Time\tBurst Time\tTurnaround Time\tWaiting "
+            "Time\n";
+    for (const Process &p : arr) {
+        cout << p.id << "\t\t" << p.arrivalTime << "\t\t" << p.burstTime
+             << "\t\t" << p.turnAroundTime << "\t\t" << p.waitingTime << endl;
     }
 
     return 0;
